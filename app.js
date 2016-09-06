@@ -13,8 +13,9 @@ bot.on('message', function (msg) {
       if (!error && response.statusCode == 200) {
         var ob = JSON.parse(body);
         console.log(ob.msg);
-        ob.msg?
-          bot.sendMessage(chatId, ob.msg , {caption: "I'm a bot!"}) : void(0);
+        ob[msg.text]?
+          bot.sendMessage(chatId, ob[msg.text] , {caption: "I'm a bot!"}) :
+        void(0);
       }
     });
 });
